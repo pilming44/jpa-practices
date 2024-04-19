@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>jpa연습</title>
+    <!-- Bootstrap CSS 연결 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Home</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <a href="/authors/new" class="btn btn-primary btn-block" th:href="@{/authors/new}">저자 등록</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/publishers/new" class="btn btn-secondary btn-block" th:href="@{/publishers/new}">출판사 등록</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/books/new" class="btn btn-success btn-block" th:href="@{/books/new}">책 등록</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/books" class="btn btn-info btn-block" th:href="@{/books}">책 목록</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
