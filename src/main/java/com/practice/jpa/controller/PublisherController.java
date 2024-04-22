@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 public class PublisherController {
     @GetMapping("/publishers/new")
-    public String registerpublisherFrom() {
+    public String registerpublisherForm() {
         log.info("출판사 등록 폼");
         return "publishers/registerPublisherForm";
     }

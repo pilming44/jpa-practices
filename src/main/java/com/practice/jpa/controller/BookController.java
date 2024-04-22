@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 public class BookController {
     @GetMapping("/books/new")
-    public String registerBookFrom() {
+    public String registerBookForm() {
         log.info("책 등록 폼");
         return "books/registerBookForm";
     }
