@@ -1,6 +1,5 @@
 package com.practice.jpa.service;
 
-import com.practice.jpa.entity.Book;
 import com.practice.jpa.entity.Publisher;
 import com.practice.jpa.repository.PublisherRepository;
 import lombok.RequiredArgsConstructor;
