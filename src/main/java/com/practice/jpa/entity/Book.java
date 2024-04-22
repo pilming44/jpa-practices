@@ -34,4 +34,10 @@ public class Book {
 
     @OneToMany(mappedBy = "book")
     private List<Review> reviewList = new ArrayList<>();
+
+    public Book(String title, Author author, Publisher publisher) {
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+    }
 }
