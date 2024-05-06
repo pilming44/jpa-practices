@@ -24,7 +24,7 @@ class AuthorServiceTest {
         //when
         authorService.saveAuthor(author);
         //then
-        Assertions.assertThat(author).isEqualTo(authorService.findAuthor(author.getId()));
+        Assertions.assertThat(author).isEqualTo(authorService.findOne(author.getId()));
     }
 
     @Test
@@ -34,7 +34,7 @@ class AuthorServiceTest {
         Author author = new Author("최재현");
         authorService.saveAuthor(author);
         // when
-        Author author1 = authorService.findAuthor(author.getId());
+        Author author1 = authorService.findOne(author.getId());
         // then
         Assertions.assertThat(author1).isEqualTo(author);
     }

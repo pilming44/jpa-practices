@@ -27,7 +27,8 @@ public class Book {
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
-    private LocalDateTime publishedDate;
+    @Column(name = "published_date")
+    private LocalDateTime publishedDate = LocalDateTime.now();
 
     @OneToMany(mappedBy = "book")
     private List<Biography> biographyList = new ArrayList<>();

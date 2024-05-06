@@ -9,14 +9,14 @@
 <body>
 <div class="container mt-5">
     <h2>책 등록</h2>
-    <form th:action="@{/books}" method="post">
+    <form th:action="@{/books/new}" method="post">
         <div class="form-group">
             <label for="title">책 제목:</label>
             <input type="text" class="form-control" id="title" name="title" placeholder="책 제목을 입력하세요" required>
         </div>
         <div class="form-group">
-            <label for="author">저자 선택:</label>
-            <select class="form-control" id="author" name="author">
+            <label for="authorId">저자 선택:</label>
+            <select class="form-control" id="authorId" name="authorId">
                 <option>선택</option>
                 <option th:each="author : ${authors}"
                         th:value="${author.id}"
@@ -24,8 +24,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="publisher">출판사 선택:</label>
-            <select class="form-control" id="publisher" name="publisher">
+            <label for="publisherId">출판사 선택:</label>
+            <select class="form-control" id="publisherId" name="publisherId">
                 <option>선택</option>
                 <option th:each="publisher : ${publishers}"
                         th:value="${publisher.id}"

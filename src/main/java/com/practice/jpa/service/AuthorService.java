@@ -20,7 +20,7 @@ public class AuthorService {
         authorRepository.save(author);
     }
 
-    public Author findAuthor(Long authorId) {
+    public Author findOne(Long authorId) {
         return authorRepository.findOne(authorId);
     }
 
