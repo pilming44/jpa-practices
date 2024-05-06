@@ -1,6 +1,7 @@
 package com.practice.jpa.service;
 
 import com.practice.jpa.entity.Book;
+import com.practice.jpa.entity.Review;
 import com.practice.jpa.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,10 @@ public class BookService {
 
     public List<Book> findAll() {
         return bookRepository.findAll();
+    }
+
+    @Transactional
+    public void reviewSave(Review review) {
+        bookRepository.reviewSave(review);
     }
 }

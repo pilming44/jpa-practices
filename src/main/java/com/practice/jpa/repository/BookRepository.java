@@ -1,6 +1,7 @@
 package com.practice.jpa.repository;
 
 import com.practice.jpa.entity.Book;
+import com.practice.jpa.entity.Review;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -23,5 +24,9 @@ public class BookRepository {
     public List<Book> findAll() {
         return em.createQuery("select b from Book b", Book.class)
                 .getResultList();
+    }
+
+    public void reviewSave(Review review) {
+        em.persist(review);
     }
 }

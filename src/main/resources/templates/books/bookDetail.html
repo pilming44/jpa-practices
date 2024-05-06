@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>책 상세 정보</title>
+    <!-- Bootstrap CSS 연결 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>책 상세 정보</h2>
+    <div class="mb-3">
+        <p><strong>책제목:</strong> <span th:text="${book.title}">책 제목</span></p>
+        <p><strong>저자:</strong> <span th:text="${book.author.getName()}">저자 이름</span></p>
+        <p><strong>출판사:</strong> <span th:text="${book.publisher.getName()}">출판사 이름</span></p>
+    </div>
+
+    <!-- 리뷰 입력 폼 -->
+    <form th:action="@{/books/{id}/review(id=${book.id})}" method="post">
+        <div class="form-group">
+            <label for="comment">리뷰 작성:</label>
+            <input type="text" class="form-control" id="comment" name="comment" placeholder="리뷰를 작성하세요" required>
+            <button type="submit" class="btn btn-primary mt-2">리뷰 등록</button>
+        </div>
+    </form>
+
+    <!-- 리뷰 테이블 -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>리뷰 내용</th>
+            <th>리뷰 시간</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="review : ${book.getReviewList()}">
+            <td th:text="${review.getComment()}">리뷰 내용</td>
+            <td th:text="${review.getCommentDate()}">리뷰 시간</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

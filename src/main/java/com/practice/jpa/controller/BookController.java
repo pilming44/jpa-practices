@@ -1,9 +1,11 @@
 package com.practice.jpa.controller;
 
 import com.practice.jpa.controller.form.BookForm;
+import com.practice.jpa.controller.form.ReviewForm;
 import com.practice.jpa.entity.Author;
 import com.practice.jpa.entity.Book;
 import com.practice.jpa.entity.Publisher;
+import com.practice.jpa.entity.Review;
 import com.practice.jpa.service.AuthorService;
 import com.practice.jpa.service.BookService;
 import com.practice.jpa.service.PublisherService;
@@ -12,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -44,5 +47,21 @@ public class BookController {
         log.info("책 목록");
         model.addAttribute("books", bookService.findAll());
         return "books/booksList";
+    }
+
+    @GetMapping("/books/{id}")
+    public String bookDetail(@PathVariable("id") Long bookId,  Model model) {
+        log.info("책 상세조회");
+        model.addAttribute("book", bookService.findOne(bookId));
+        return "books/bookDetail";
+    }
+
+    @PostMapping("/books/{id}/review")
+    public String registerBookReview(@PathVariable("id") Long bookId, ReviewForm reviewForm) {
+        log.info("책 리뷰 등록");
+        Book book = bookService.findOne(bookId);
+        Review review = new Review(book, reviewForm.getComment());
+        bookService.reviewSave(review);
+        return "redirect:/books/"+bookId;
     }
 }

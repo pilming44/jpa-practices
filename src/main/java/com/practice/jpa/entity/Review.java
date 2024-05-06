@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -18,6 +20,13 @@ public class Review {
     @JoinColumn(name = "book_id")
     private Book book;
 
-    private Integer rating;
     private String comment;
+
+    @Column(name = "comment_date")
+    private LocalDateTime commentDate = LocalDateTime.now();
+
+    public Review(Book book, String comment) {
+        this.book = book;
+        this.comment = comment;
+    }
 }
