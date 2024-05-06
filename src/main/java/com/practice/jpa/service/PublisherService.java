@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -19,5 +21,9 @@ public class PublisherService {
 
     public Publisher findOne(Long id) {
         return publisherRepository.findOne(id);
+    }
+
+    public List<Publisher> findAll() {
+        return publisherRepository.findAll();
     }
 }

@@ -17,6 +17,7 @@
         <div class="form-group">
             <label for="author">저자 선택:</label>
             <select class="form-control" id="author" name="author">
+                <option>선택</option>
                 <option th:each="author : ${authors}"
                         th:value="${author.id}"
                         th:text="${author.name}">저자명</option>
@@ -25,6 +26,7 @@
         <div class="form-group">
             <label for="publisher">출판사 선택:</label>
             <select class="form-control" id="publisher" name="publisher">
+                <option>선택</option>
                 <option th:each="publisher : ${publishers}"
                         th:value="${publisher.id}"
                         th:text="${publisher.name}">출판사명</option>
