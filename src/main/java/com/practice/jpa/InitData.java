@@ -31,7 +31,23 @@ public class InitData {
 
         Book book1 = new Book("최재현 책", author1, publisher1);
         Book book2 = new Book("방서현 책", author2, publisher2);
+        Book book3 = new Book("최재현 책2", author1, publisher2);
+        Book book4 = new Book("부에노 책", author1, publisher1);
+        Book book5 = new Book("오월의 숲 책", author2, publisher2);
+        Book book6 = new Book("에이게이트 책", author2, publisher1);
+        Book book7 = new Book("홈카페 책", author1, publisher1);
+        Book book8 = new Book("책", author2, publisher2);
+        Book book9 = new Book("시골책", author2, publisher1);
+        Book book10 = new Book("천안책", author1, publisher2);
         bookService.save(book1);
         bookService.save(book2);
+        bookService.save(book3);
+        bookService.save(book4);
+        bookService.save(book5);
+        bookService.save(book6);
+        bookService.save(book7);
+        bookService.save(book8);
+        bookService.save(book9);
+        bookService.save(book10);
     }
 }
