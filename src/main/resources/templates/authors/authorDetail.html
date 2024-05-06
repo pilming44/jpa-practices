@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>저자 상세 정보</title>
+    <!-- Bootstrap CSS 연결 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>저자 상세 정보</h2>
+    <div class="mb-3">
+        <p><strong>저자 이름:</strong> <span th:text="${author.name}">저자 이름</span></p>
+    </div>
+
+    <!-- 저자의 책 목록 -->
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>책 제목</th>
+            <th>출판사 이름</th>
+            <th>출판일</th>
+            <th>리뷰 갯수</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${authorBook}">
+            <td th:text="${book.getTitle()}">책 제목</td>
+            <td th:text="${book.getPublisher().getName()}">출판사 이름</td>
+            <td th:text="${book.getPublishedDate()}">출판일</td>
+            <td th:text="${book.getReviewList().size()}">리뷰 갯수</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

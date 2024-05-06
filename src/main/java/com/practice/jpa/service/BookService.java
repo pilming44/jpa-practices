@@ -32,4 +32,8 @@ public class BookService {
     public void reviewSave(Review review) {
         bookRepository.reviewSave(review);
     }
+
+    public List<Book> findBookByAuthorId(Long authorId) {
+        return bookRepository.findByAuthorId(authorId);
+    }
 }

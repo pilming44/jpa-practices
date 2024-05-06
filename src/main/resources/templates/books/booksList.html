@@ -20,9 +20,9 @@
     </thead>
     <tbody>
     <tr th:each="book : ${books}">
-      <td th:text="${book.id}">1</td>
-      <td><a th:href="@{/books/{id}(id=${book.id})}" th:text="${book.title}">책 제목 예시</a></td>
-      <td th:text="${book.author.getName()}">저자 예시</td>
+      <td th:text="${book.getId()}">1</td>
+      <td><a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getTitle()}">책 제목 예시</a></td>
+      <td><a th:href="@{/authors/{id}(id=${book.getAuthor().getId()})}" th:text="${book.author.getName()}">저자 예시</a></td>
       <td th:text="${book.publisher.getName()}">출판사 예시</td>
     </tr>
     </tbody>

@@ -29,4 +29,10 @@ public class BookRepository {
     public void reviewSave(Review review) {
         em.persist(review);
     }
+
+    public List<Book> findByAuthorId(Long authorId) {
+        return em.createQuery("select b from Book b where b.author.id = :authorId", Book.class)
+                .setParameter("authorId", authorId)
+                .getResultList();
+    }
 }
