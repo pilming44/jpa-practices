@@ -22,7 +22,7 @@ public class BookRepository {
     }
 
     public List<Book> findAll() {
-        return em.createQuery("select b from Book b", Book.class)
+        return em.createQuery("select b from Book b order by b.publishedDate desc", Book.class)
                 .getResultList();
     }
 
@@ -31,7 +31,7 @@ public class BookRepository {
     }
 
     public List<Book> findByAuthorId(Long authorId) {
-        return em.createQuery("select b from Book b where b.author.id = :authorId", Book.class)
+        return em.createQuery("select b from Book b where b.author.id = :authorId order by b.publishedDate desc", Book.class)
                 .setParameter("authorId", authorId)
                 .getResultList();
     }
