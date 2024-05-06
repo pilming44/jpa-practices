@@ -22,8 +22,8 @@
     <tr th:each="book : ${books}">
       <td th:text="${book.id}">1</td>
       <td th:text="${book.title}">책 제목 예시</td>
-      <td th:text="${book.author}">저자 예시</td>
-      <td th:text="${book.publisher}">출판사 예시</td>
+      <td th:text="${book.author.getName()}">저자 예시</td>
+      <td th:text="${book.publisher.getName()}">출판사 예시</td>
     </tr>
     </tbody>
   </table>

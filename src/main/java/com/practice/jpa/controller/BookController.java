@@ -40,8 +40,9 @@ public class BookController {
     }
 
     @GetMapping("/books")
-    public String list() {
+    public String list(Model model) {
         log.info("책 목록");
+        model.addAttribute("books", bookService.findAll());
         return "books/booksList";
     }
 }
