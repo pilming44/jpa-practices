@@ -50,7 +50,7 @@ public class BookController {
     }
 
     @GetMapping("/books/{id}")
-    public String bookDetail(@PathVariable("id") Long bookId,  Model model) {
+    public String bookDetail(@PathVariable("id") Long bookId, Model model) {
         log.info("책 상세조회");
         model.addAttribute("book", bookService.findOne(bookId));
         return "books/bookDetail";
@@ -62,6 +62,6 @@ public class BookController {
         Book book = bookService.findOne(bookId);
         Review review = new Review(book, reviewForm.getComment());
         bookService.reviewSave(review);
-        return "redirect:/books/"+bookId;
+        return "redirect:/books/" + bookId;
     }
 }

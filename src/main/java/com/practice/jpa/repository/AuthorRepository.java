@@ -1,7 +1,6 @@
 package com.practice.jpa.repository;
 
 import com.practice.jpa.entity.Author;
-import com.practice.jpa.entity.Book;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

@@ -14,13 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class PublisherController {
     private final PublisherService publisherService;
+
     @GetMapping("/publishers/new")
     public String registerpublisherForm() {
         log.info("출판사 등록 폼");
         return "publishers/registerPublisherForm";
     }
 
-    @PostMapping ("/publishers/new")
+    @PostMapping("/publishers/new")
     public String registerpublisher(PublisherForm publisherForm) {
         log.info("출판사 등록");
         publisherService.save(new Publisher(publisherForm.getName()));
