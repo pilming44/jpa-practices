@@ -18,9 +18,6 @@ public class Author {
 
     private String name;
 
-    @OneToMany(mappedBy = "author")
-    private List<Biography> biographyList = new ArrayList<>();
-
     public Author(String name) {
         this.name = name;
     }

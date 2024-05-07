@@ -31,9 +31,6 @@ public class Book {
     private LocalDateTime publishedDate = LocalDateTime.now();
 
     @OneToMany(mappedBy = "book")
-    private List<Biography> biographyList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "book")
     private List<Review> reviewList = new ArrayList<>();
 
     public Book(String title, Author author, Publisher publisher) {
