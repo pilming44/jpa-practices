@@ -38,7 +38,7 @@ public class BookController {
         log.info("책 등록");
         Author author = authorService.findOne(bookForm.getAuthorId());
         Publisher publisher = publisherService.findOne(bookForm.getPublisherId());
-        bookService.save(new Book(bookForm.getTitle(), author, publisher));
+        bookService.save(new Book(bookForm.getTitle(), author, publisher, bookForm.getStatus()));
         return "redirect:/";
     }
 
