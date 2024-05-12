@@ -4,6 +4,7 @@ import com.practice.jpa.entity.Author;
 import com.practice.jpa.entity.Book;
 import com.practice.jpa.entity.Publisher;
 import com.practice.jpa.enums.BookStatus;
+import jakarta.persistence.EntityManager;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,22 @@ class BookServiceTest {
         // given
         Book book = registerBook("최재현", "조암", "최재현 책", BookStatus.UNAVAILABLE_FOR_RENT);
         // when
-        bookService.save(book);
+
+        // then
+        Assertions.assertThat(bookService.findOne(book.getId())).isEqualTo(book);
+    }
+
+    @Test
+    @DisplayName("책 정보 수정")
+    void 책정보_수정() {
+        // given
+        Book book = registerBook("최재현", "조암", "최재현 책", BookStatus.UNAVAILABLE_FOR_RENT);
+
+        // when
+        book.changeAuthor(new Author("방서현"));
+        book.changePublisher(new Publisher("화성시"));
+        book.changeTitle("수정");
+        book.changeStatus(BookStatus.AVAILABLE_FOR_RENT);
 
         // then
         Assertions.assertThat(bookService.findOne(book.getId())).isEqualTo(book);
@@ -37,7 +53,6 @@ class BookServiceTest {
     void 책상세조회() {
         // given
         Book book = registerBook("최재현", "조암", "최재현 책", BookStatus.AVAILABLE_FOR_RENT);
-        bookService.save(book);
         // when
         Book findBook = bookService.findOne(book.getId());
 
@@ -52,9 +67,6 @@ class BookServiceTest {
         Book book1 = registerBook("최재현", "화성시", "화성시의 최재현", BookStatus.UNAVAILABLE_FOR_RENT);
         Book book2 = registerBook("최재현", "수원시", "수원시의 최재현", BookStatus.AVAILABLE_FOR_RENT);
         Book book3 = registerBook("삼성", "천안시", "천안시의 최재현", BookStatus.PLANNED_TO_PURCHASE);
-        bookService.save(book1);
-        bookService.save(book2);
-        bookService.save(book3);
 
         // when
         List<Book> all = bookService.findAll();
@@ -69,7 +81,10 @@ class BookServiceTest {
         authorService.saveAuthor(author);
         Publisher publisher = new Publisher(publisherName);
         publisherService.save(publisher);
+        Book book = new Book(title, author, publisher, status);
 
-        return new Book(title, author, publisher, status);
+        bookService.save(book);
+
+        return book;
     }
 }

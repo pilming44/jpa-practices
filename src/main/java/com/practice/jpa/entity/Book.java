@@ -43,4 +43,20 @@ public class Book {
         this.publisher = publisher;
         this.status = status;
     }
+
+    public void changeAuthor(Author newAuthor) {
+        this.author = newAuthor;
+    }
+
+    public void changePublisher(Publisher newPublisher) {
+        this.publisher = newPublisher;
+    }
+
+    public void changeStatus(BookStatus newStatus) {
+        this.status = newStatus;
+    }
+
+    public void changeTitle(String newTitle) {
+        this.title = newTitle;
+    }
 }

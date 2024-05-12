@@ -32,8 +32,17 @@
                         th:text="${publisher.name}">출판사명</option>
             </select>
         </div>
+        <div class="form-group">
+            <label for="status">상태:</label>
+            <select class="form-control" id="status" name="status">
+                <option>선택</option>
+                <option th:each="status : ${bookStatus}"
+                        th:value="${status}"
+                        th:text="${status.description}">Status</option>
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">등록</button>
-        <a href="/" class="btn btn-secondary ml-2" th:href="@{/}">home</a>
+        <a href="/" class="btn btn-secondary ml-2" th:href="@{/}">홈으로</a>
     </form>
 </div>
 </body>

@@ -13,7 +13,9 @@
         <p><strong>책제목:</strong> <span th:text="${book.title}">책 제목</span></p>
         <p><strong>저자:</strong> <span th:text="${book.author.getName()}">저자 이름</span></p>
         <p><strong>출판사:</strong> <span th:text="${book.publisher.getName()}">출판사 이름</span></p>
+        <p><strong>상태:</strong> <span th:text="${book.getStatus().getDescription()}">상태</span></p>
     </div>
+    <a href="/" class="btn btn-primary" th:href="@{/books/update/{id}(id=${book.getId()})}">수정</a>
 
     <!-- 리뷰 입력 폼 -->
     <form th:action="@{/books/{id}/review(id=${book.id})}" method="post">
@@ -39,7 +41,7 @@
         </tr>
         </tbody>
     </table>
-    <a href="/" class="btn btn-secondary ml-2" th:href="@{/books}">책 목록</a>
+    <a href="/" class="btn btn-secondary" th:href="@{/books}">목록</a>
 </div>
 </body>
 </html>
