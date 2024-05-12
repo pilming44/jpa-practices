@@ -9,10 +9,12 @@ import com.practice.jpa.service.BookService;
 import com.practice.jpa.service.PublisherService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
+@Profile("local")
 public class InitData {
     private final AuthorService authorService;
     private final PublisherService publisherService;
